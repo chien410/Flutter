@@ -35,7 +35,7 @@ class Api{
       "authcode": "@#ALLEC#@%\$!",
       "centercode": "jx01",
       "memtel": "$account",
-      "pw": "123",
+      "pw": "$password",
     });
     if(response.statusCode == HttpStatus.ok){
       return response.data;
