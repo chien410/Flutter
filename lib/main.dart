@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/login/loginProvider.dart';
+import 'package:provider/provider.dart';
 import 'courseinfo/CourseInfo.dart';
 import 'home/Home.dart';
 import 'login/login_page.dart';
 import 'member/Member.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+      create:(context) => LoginProvider(),
+      child:MyApp()
+  ));
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //透過 Provider.of 來獲取資料
+    // final counter = Provider.of<MyCountChangeNotifier>(context);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -19,12 +26,12 @@ class MyApp extends StatelessWidget {
           bottomAppBarColor: Colors.brown,
           buttonTheme: ButtonThemeData(minWidth: double.infinity, height: 50)),
 
-      home: LoginPage(),
+      home: MyHomePage(),
 
       // Navigator.pushNamed 使用前的預先設定
       initialRoute: '/',
       routes: {
-        "/l": (context) => LoginPage(),
+        "/loginPage": (context) => LoginPage(),
         "/home": (context) => Home(),
       },
     );

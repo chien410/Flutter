@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final account = accountFromJson(jsonString);
+
 import 'dart:convert';
 
 Account accountFromJson(String str) => Account.fromJson(json.decode(str));
@@ -21,23 +25,21 @@ class Account {
   int eweektimes;
   int memptype;
 
-  factory Account.fromJson(Map<String, dynamic> json) =>
-      Account(
-        rs: json["rs"],
-        rsmessage: json["rsmessage"],
-        centercode: json["centercode"],
-        levelname: json["levelname"],
-        eweektimes: json["eweektimes"],
-        memptype: json["memptype"],
-      );
+  factory Account.fromJson(Map<String, dynamic> json) => Account(
+    rs: json["rs"],
+    rsmessage: json["rsmessage"],
+    centercode: json["centercode"],
+    levelname: json["levelname"],
+    eweektimes: json["eweektimes"],
+    memptype: json["memptype"],
+  );
 
-  Map<String, dynamic> toJson() =>
-      {
-        "rs": rs,
-        "rsmessage": rsmessage,
-        "centercode": centercode,
-        "levelname": levelname,
-        "eweektimes": eweektimes,
-        "memptype": memptype,
-      };
+  Map<String, dynamic> toJson() => {
+    "rs": rs,
+    "rsmessage": rsmessage,
+    "centercode": centercode,
+    "levelname": levelname,
+    "eweektimes": eweektimes,
+    "memptype": memptype,
+  };
 }

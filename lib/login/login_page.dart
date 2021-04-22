@@ -4,6 +4,9 @@ import 'package:flutter_app/Api/Api.dart';
 import 'package:flutter_app/Model/Account.dart';
 import 'package:flutter_app/home/Home.dart';
 import 'package:flutter_app/main.dart';
+import 'package:provider/provider.dart';
+
+import 'loginProvider.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -66,26 +69,34 @@ class _LoginPageState extends State<LoginPage> {
                         // rs == 0 代表通過
                         // rs == 4 代表失敗
                         if (data.rs == 0) {
+                           Provider.of<LoginProvider>(context,listen: false).loginState(true);
                           showDialog(
                               context: context,
                               builder: (context) {
                                 Future.delayed(Duration(seconds: 1), () {
                                   Navigator.push(
-                                      context, MaterialPageRoute(builder: (_) => MyHomePage()));
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) => MyHomePage()));
                                 });
                                 return AlertDialog(
-                                  backgroundColor: Colors.grey[800],
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(15))),
-                                  content: Align(
-                                      alignment: Alignment.bottomCenter,
-                                      child: Text(
-                                        "登入成功",
-                                        style: TextStyle(
-                                            fontSize: 16, color: Colors.white),
-                                      )),
-                                );
+                                    backgroundColor: Colors.grey,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(15))),
+                                    content: Container(
+                                      height: 25,
+                                      width: 80,
+                                      child: Align(
+                                          alignment: Alignment.center,
+                                          child:
+                                          Text(
+                                            "登入成功",
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white),
+                                          )),
+                                    ));
                               });
                         } else {
                           showDialog(

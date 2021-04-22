@@ -7,4 +7,5 @@ const String newsUrl = '$BaseUrl/JasperNews/Index';
 
 const String coachUrl = '$BaseUrl/JasperCoach/query';
 
-const String loginUrl ='http://sp7.allec.com.tw/apisk/login2';
+
+const String loginUrl = 'http://sp7.allec.com.tw/apisk/login2';

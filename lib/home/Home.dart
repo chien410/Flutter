@@ -3,7 +3,7 @@ import 'package:flutter_app/Api/Api.dart';
 import 'package:flutter_app/Model/Banners.dart';
 import 'package:flutter_app/Model/News.dart';
 import 'package:flutter_app/home/news_detail.dart';
-import 'package:flutter_app/login/login_page.dart';
+
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class Home extends StatefulWidget {
@@ -28,17 +28,7 @@ class _HomeState extends State<Home> {
     // final width = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(title: Text('首頁'),
-        // actions: <Widget>[
-        //   ElevatedButton(
-        //       onPressed: () {
-        //         Navigator.push(context,
-        //             MaterialPageRoute(builder: (context) => LoginPage()));
-        //       },
-        //       child: Text(
-        //         "Login",
-        //         style: TextStyle(fontSize: 20),
-        //       ))
-        // ]
+
         ),
         body: FutureBuilder(
           future: Future.wait([Api.queryBanner(), Api.queryNews()]),
